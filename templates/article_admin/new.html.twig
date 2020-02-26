@@ -1,0 +1,11 @@
+{% extends 'content_base.html.twig' %}
+
+{% block content_body %}
+    <h1>Launch a new Article! 🚀</h1>
+
+    {# To stop duplicating code, I have moved all the form rendering into _form.html.twig and am including it here
+        I am passing a button_text variable with a value set to 'Create' because that is what I want the button on this page to display#}
+    {{ include('article_admin/_form.html.twig', {
+        button_text: 'Create'
+    }) }}
+{% endblock %}

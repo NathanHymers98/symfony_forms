@@ -1,0 +1,37 @@
+{% extends 'content_base.html.twig' %}
+{% block content_body %}
+    <a href="{{ path('admin_article_new') }}" class="btn btn-primary pull-right"> {# A link to the view that allows the admin to create a new article#}
+        Create <span class="fa fa-plus-circle"></span>
+    </a>
+    <h1>All Articles</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Published?</th>
+            <th>&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %} {# Looping over the variable articles as article and prints out some info about each one#}
+            <tr>
+                <td>{{ article.title }}</td>
+                <td>{{ article.author.email }}</td>
+                <td>
+                    <span class="fa fa-{{ article.isPublished ? 'check' : 'times' }}"></span> {# Displays the value of the isPublished property of each article object,
+                                                                                                If it is true then it will display a check mark, if not true it will display a times mark (an X)#}
+                </td>
+                <td>
+                    {# Creating a link on this page to the admin edit page. I am passing it the wildcard id which is set to the id of the article that has been clicked on #}
+                    <a href="{{ path('admin_article_edit', {
+                        id: article.id
+                    }) }}">
+                        <span class="fa fa-pencil"></span>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

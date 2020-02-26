@@ -1,0 +1,17 @@
+{# Using special form rendering functions to render the form we want. Everything that goes inbetween the start and end functions goes into the form#}
+    {{ form_start(articleForm) }} {# In plain HTML this line would be <form method="POST"> #}
+
+         {# {{ form_widget(articleForm) }} In plain HTML this line would be the fields, for example <label>Title</label>#}
+
+    {# By using form_row and passing it an single field instead of form_widget, we can load each field individually, giving us more control#}
+        {# Below for title, I am passing it an array of variables, which is the second argument of these form render functions
+        I am manually setting the label for the title field so that on the form it displays what I want it to, rather than Symfony gussing for me#}
+        {{ form_row(articleForm.title, {
+            label: 'Article title'
+        }) }}
+        {{ form_row(articleForm.content) }}
+        {{ form_row(articleForm.publishedAt) }}
+        {{ form_row(articleForm.author) }}
+
+<button type="submit" class="btn btn-primary">{{ button_text }}</button> {# You can build this button into your form class, or you can do it manually like this#}
+    {{ form_end(articleForm) }} {# In plain HTML this line would be </>form #}

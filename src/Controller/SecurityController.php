@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\Model\UserRegistrationFormModel;
 use App\Form\UserRegistrationFormType;
 use App\Security\LoginFormAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -55,16 +56,18 @@ class SecurityController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
 
-            /** @var User $user */
-            $user = $form->getData();
+            /** @var UserRegistrationFormModel $user */
+            $userModel = $form->getData();
 
+            $user = new User();
+            $user->setEmail($userModel->email); // Since the form will now create a UserRegistraionFormModel object instead of a User object
+                                                // we need to point to where the users email is when they create an account, which will be in the $userModel's email property now
             $user->setPassword($passwordEncoder->encodePassword( // Uses the $user and $form['plainPassword'] to encode the password and set the encoded password to the $user that is passed in the database
                 $user,
-                $form['plainPassword']->getData() // Using the $form['plainPassword'] gives us a form object that tells us everything about this one field
-                                                    // When we call getData on it, that's the value of this one field so I am using this to get the plain text password in to encode it and save it to the database
+                $userModel->plainPassword // again, pointing to where the password is sent to when the user registers an account, which is on the $userModel's plainPassword property
             ));
 
-            if (true === $form['agreeTerms']->getData()) { // If the agreeTerms field data received from the form is exactly equal to true
+            if (true === $userModel->agreeTerms) { // If the agreeTerms field data received from the form is exactly equal to true
                 $user->agreeTerms(); // Then call this method which set the Users agreedTermsAt property with a DateTime object
             }
 

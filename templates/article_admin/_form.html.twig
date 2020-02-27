@@ -5,12 +5,14 @@
 
     {# By using form_row and passing it an single field instead of form_widget, we can load each field individually, giving us more control#}
         {# Below for title, I am passing it an array of variables, which is the second argument of these form render functions
-        I am manually setting the label for the title field so that on the form it displays what I want it to, rather than Symfony gussing for me#}
+        I am manually setting the label variable for the title field so that on the form it displays what I want it to, rather than Symfony gussing for me#}
         {{ form_row(articleForm.title, {
             label: 'Article title'
         }) }}
         {{ form_row(articleForm.content) }}
-        {{ form_row(articleForm.publishedAt) }}
+        {% if articleForm.publishedAt is defined %} {# If the publishedAt field is defined, then display it.#}
+            {{ form_row(articleForm.publishedAt) }}
+        {% endif %}
         {{ form_row(articleForm.author) }}
 
 <button type="submit" class="btn btn-primary">{{ button_text }}</button> {# You can build this button into your form class, or you can do it manually like this#}

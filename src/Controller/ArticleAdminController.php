@@ -64,7 +64,7 @@ class ArticleAdminController extends AbstractController
     public function edit(Article $article, Request $request, EntityManagerInterface $em) // Editing an existing form
     {
         // All this code below is identical to the code that creates a new article, apart from one small change.
-        $form = $this->createForm(ArticleFormType::class, $article); // Passing $article as the second argument in this method is the small change.
+        $form = $this->createForm(ArticleFormType::class, $article , ['include_published_at' => true]); // Passing $article as the second argument in this method is the small change.
                                                                             // When we pass $article, which is the object we just got from the database, becomes the data attached to the form
                                                                             // This causes two things to happen:
                                                                             // 1. When Symfony renders the form, it calls the getter methods on that article object and uses those values to fill in the fields on the form

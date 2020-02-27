@@ -268,9 +268,12 @@ class User implements UserInterface
         return $this->agreedTermsAt;
     }
 
-    public function setAgreedTermsAt(\DateTimeInterface $agreedTermsAt): self
+    // This is a simple clean method that when called, sets the agreedTermsAt property to a new DateTime object based on what the agreeTerms form field's boolean value is
+    // This allows us to have a form field which takes in a boolean value, check to see if that form gave back a true
+    // and if it did, it calls this method, which will set the property agreeTermsAt to a new DateTime object and return it to where it was called
+    public function agreeTerms(): self
     {
-        $this->agreedTermsAt = $agreedTermsAt;
+        $this->agreedTermsAt = new \DateTime();
 
         return $this;
     }

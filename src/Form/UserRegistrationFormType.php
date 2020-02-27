@@ -5,9 +5,11 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
@@ -16,7 +18,7 @@ class UserRegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email')
+            ->add('email', EmailType::class)
             // don't use password, avoid EVER setting that on a
             // field that might be persisted
             ->add('plainPassword', PasswordType::class, [ // Since we still want this field on the form, but don't want it persisted to the database.
@@ -37,7 +39,15 @@ class UserRegistrationFormType extends AbstractType
 
                 ]
             ])
-            ->add('agreeTerms', CheckboxType::class)
+            ->add('agreeTerms', CheckboxType::class, [
+                'mapped' => false, // Using the mapped => false again which tells the form system that we do want this field on this form,
+                                    // but it should not get or set its data back to the user object because we dont want to create the setter and getter method for it
+                'constraints' => [ // Adding a constraint and setting it to a new isTrue object because we need this fields value to be true, not false
+                    new isTrue([ // Setting a custom message to the isTrue object.
+                        'message' => 'You must agree to our terms'
+                    ])
+                ]
+            ])
         ;
     }
 

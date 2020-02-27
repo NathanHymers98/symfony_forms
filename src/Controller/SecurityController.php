@@ -64,6 +64,10 @@ class SecurityController extends AbstractController
                                                     // When we call getData on it, that's the value of this one field so I am using this to get the plain text password in to encode it and save it to the database
             ));
 
+            if (true === $form['agreeTerms']->getData()) { // If the agreeTerms field data received from the form is exactly equal to true
+                $user->agreeTerms(); // Then call this method which set the Users agreedTermsAt property with a DateTime object
+            }
+
             $em = $this->getDoctrine()->getManager(); // Saves the user and their encoded password
             $em->persist($user);
             $em->flush();

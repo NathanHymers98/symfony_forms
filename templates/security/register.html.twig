@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{% form_theme registrationForm _self %} {# Telling the form system that I want to use this template as a form_theme tempalate for the registrationForm object #}
 
 {% block title %}Register!{% endblock %}
 
@@ -8,16 +9,57 @@
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 {% endblock %}
 
+{# The block below is a form_theme block and is completely isolated because it calls to variables that come from the form system
+This block does not work like any other blocks in this template#}
+{% block form_row %}
+    {%- set widget_attr = {} -%}
+    {%- if help is not empty -%}
+        {%- set widget_attr = {attr: {'aria-describedby': id ~"_help"}} -%}
+    {%- endif -%}
+
+
+    {# Below I am customising the label attributes. Since form_label takes 3 arguments I am setting the second one to null so it continues to use whatever text the normal label is
+    Then I am passing an array as the third argument which is setting the variable label_attr to yet another array which is the value "class: sr-only"#}
+        {{- form_label(form, null, {
+            label_attr: { class: 'sr-only'}
+        }) -}}
+        {{- form_errors(form) -}}
+        {{- form_widget(form, widget_attr) -}}
+        {{- form_help(form) -}}
+{% endblock %}
+
+{# The block below customises the look of the agree to terms checkbox only by using a special block name given to us by the Symfony profiler#}
+{% block _user_registration_form_agreeTerms_row %}
+    <div class="checkbox mb-3">
+        {{ form_errors(form) }} {# Makes sure any validation errors show up#}
+        <label>
+            <input type="checkbox" name="{{ full_name }}" required> Agree to terms I for sure read
+        </label>
+    </div>
+{% endblock %}
+
 {% block body %}
 
-    {{ form_start(registrationForm) }}
-        {{ form_widget(registrationForm) }}
+    {# The Symfony form below is the same as the HTML form below it
+    It just uses twig variables passed as arguments to build the same form#}
+    {{ form_start(registrationForm, {
+        attr: { class: 'form-signin' }
+    }) }}
+        <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+        {# Calling individual rows instead of widgets to set the placeholders of the feilds since the names of them no longer show up#}
+        {{ form_row(registrationForm.email, {
+            attr: { placeholder: 'Email'}
+        }) }}
+        {{ form_row(registrationForm.plainPassword, {
+            attr: { placeholder: 'Password'}
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
             <button class="btn btn-lg btn-primary btn-block" type="submit">
                 Register
             </button>
     {{ form_end(registrationForm) }}
 
-    {#
+    {#}
 <div class="container">
     <div class="row">
         <div class="col-sm-12">

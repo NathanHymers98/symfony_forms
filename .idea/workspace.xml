@@ -2,13 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04d8cccc-a790-446e-adef-20f06350741a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/algolia-autocomplete.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/algolia-autocomplete.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/AdminUtilityController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/DataTransformer/EmailToUserTransformer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/TypeExtension/TextAreaSizeExtension.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/UserSelectTextType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/symfony_forms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony_forms.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ArticleAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ArticleAdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixture.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Article.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ArticleFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ArticleFormType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/UserRegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserRegistrationFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200226203047.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200226203718.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/article_admin/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article_admin/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/article_admin/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article_admin/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/register.html.twig" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +36,13 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -148,6 +172,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -162,21 +187,13 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Migrations" />
+      <recent name="$PROJECT_DIR$/src/old_mirgrations" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates/article_admin" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -190,6 +207,7 @@
       <updated>1582703526122</updated>
       <workItem from="1582703529659" duration="20340000" />
       <workItem from="1582747139577" duration="2627000" />
+      <workItem from="1582790026079" duration="21047000" />
     </task>
     <servers />
   </component>
@@ -201,7 +219,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -212,21 +232,25 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="974" y="530" key="#com.intellij.fileTypes.FileTypeChooser/2560.0.3840.2160/0.0.2560.1440@0.0.2560.1440" timestamp="1582705422659" />
-    <state x="1081" y="412" key="#com.intellij.ide.util.MemberChooser" timestamp="1582720460476">
+    <state x="1081" y="412" key="#com.intellij.ide.util.MemberChooser" timestamp="1582816306614">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="1081" y="412" key="#com.intellij.ide.util.MemberChooser/2560.0.3840.2160/0.0.2560.1440@0.0.2560.1440" timestamp="1582720460476" />
-    <state x="1008" y="543" key="NewPhpClassDialog" timestamp="1582705431911">
+    <state x="1081" y="412" key="#com.intellij.ide.util.MemberChooser/2560.0.3840.2160/0.0.2560.1440@0.0.2560.1440" timestamp="1582816306614" />
+    <state x="1018" y="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1582803181819">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="1008" y="543" key="NewPhpClassDialog/2560.0.3840.2160/0.0.2560.1440@0.0.2560.1440" timestamp="1582705431911" />
+    <state x="1018" y="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/2560.0.3840.2160/0.0.2560.1440@0.0.2560.1440" timestamp="1582803181819" />
+    <state x="1008" y="543" key="NewPhpClassDialog" timestamp="1582816281081">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1008" y="543" key="NewPhpClassDialog/2560.0.3840.2160/0.0.2560.1440@0.0.2560.1440" timestamp="1582816281081" />
     <state x="781" y="359" key="SettingsEditor" timestamp="1582721845140">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="781" y="359" key="SettingsEditor/2560.0.3840.2160/0.0.2560.1440@0.0.2560.1440" timestamp="1582721845140" />
-    <state x="957" y="552" key="com.intellij.ide.util.TipDialog" timestamp="1582703530232">
+    <state x="957" y="552" key="com.intellij.ide.util.TipDialog" timestamp="1582790026643">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="957" y="552" key="com.intellij.ide.util.TipDialog/2560.0.3840.2160/0.0.2560.1440@0.0.2560.1440" timestamp="1582703530232" />
+    <state x="957" y="552" key="com.intellij.ide.util.TipDialog/2560.0.3840.2160/0.0.2560.1440@0.0.2560.1440" timestamp="1582790026643" />
   </component>
 </project>

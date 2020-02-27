@@ -37,7 +37,7 @@ class ArticleAdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var Article $article */
             $article = $form->getData(); // When isSubmitted() and isValid() are true, we get to this code which is
-                                    // how we access the final, normalized data that was submitted and setting it to $data
+                                        // how we access the final, normalized data that was submitted and setting it to $data
 
             $em->persist($article); // Saving the $article object we just created
             $em->flush();
@@ -51,7 +51,7 @@ class ArticleAdminController extends AbstractController
             return $this->redirectToRoute('admin_article_list'); // After the form has been successfully submitted and saved, redirecting the user to the specified route which has a matching name.
         }
 
-        return $this->render('article_admin/new.html.twig',[
+        return $this->render('article_admin/new.html.twig',[ // returning a view with the form passed to it as the variable 'articleForm'. Don't pass the form object directly, always use createView() method
             'articleForm' => $form->createView(),
         ]);
 
@@ -64,7 +64,7 @@ class ArticleAdminController extends AbstractController
     public function edit(Article $article, Request $request, EntityManagerInterface $em) // Editing an existing form
     {
         // All this code below is identical to the code that creates a new article, apart from one small change.
-        $form = $this->createForm(ArticleFormType::class, $article , ['include_published_at' => true]); // Passing $article as the second argument in this method is the small change.
+        $form = $this->createForm(ArticleFormType::class, $article , ['include_published_at' => true]); // Passing $article as the second argument in this method is the small change. Passing an option as the third argument with the value of it set to true
                                                                             // When we pass $article, which is the object we just got from the database, becomes the data attached to the form
                                                                             // This causes two things to happen:
                                                                             // 1. When Symfony renders the form, it calls the getter methods on that article object and uses those values to fill in the fields on the form

@@ -56,9 +56,9 @@ class ArticleFormType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver) // This is where you can set options that control how your form behaves
     {
-        $resolver->setDefaults([ // Using the OptionsResolver object to call the function setDefaults to set some options for my form
+        $resolver->setDefaults([ // Using the OptionsResolver object to call the function setDefaults to set some  default options for my form that can be overridden
             'data_class' => Article::class, // The most important option is this one. This binds this form to that class
-            'include_published_at' => false // Creating a new option for the Article forms to enable and disable the published at field
+            'include_published_at' => false // Creating a new option for the Article forms to enable and disable the published_at field. By default it is set to false
         ]);
     }
 

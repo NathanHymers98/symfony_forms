@@ -13,7 +13,18 @@
         {% if articleForm.publishedAt is defined %} {# If the publishedAt field is defined, then display it.#}
             {{ form_row(articleForm.publishedAt) }}
         {% endif %}
+        {{ form_row(articleForm.location, {
+            attr: {
+                'data-specific-location-url': path('article_admin_location_select'),
+                class: 'js-article-form-location'
+            }
+        }) }}
+        <div class="js-specific-location-target">
+        {% if articleForm.specificLocationName is defined %}
+            {{ form_row(articleForm.specificLocationName) }}
+        {% endif %}
+        </div>
         {{ form_row(articleForm.author) }}
 
-<button type="submit" class="btn btn-primary">{{ button_text }}</button> {# You can build this button into your form class, or you can do it manually like this#}
-    {{ form_end(articleForm) }} {# In plain HTML this line would be </>form #}
+<button type="submit" class="btn btn-primary">{{ button_text }}</button> {### You can build this button into your form class, or you can do it manually like this#}
+    {{ form_end(articleForm) }} {### In plain HTML this line would be </>form #}

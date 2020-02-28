@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ArticleAdminController extends AbstractController
+class ArticleAdminController extends BaseController
 {
     /**
      * @Route("/admin/article/new", name="admin_article_new")
@@ -55,6 +55,31 @@ class ArticleAdminController extends AbstractController
             'articleForm' => $form->createView(),
         ]);
 
+    }
+
+    /**
+     * @Route("/admin/article/location-select", name="article_admin_location_select")
+     * @IsGranted("ROLE_USER")
+     */
+    public function getSpecificLocationSelect(Request $request) //Our Javascript sends the location that was just selected to this endpoint and it will return the new html needed for the entire specific location name field
+    {
+        if (!$this->isGranted('ROLE_ADMIN_ARTICLE') && $this->getUser()->getArticles()->isEmpty()) { // if the user does not have the admin role and is not the author of any articles
+            throw $this->createAccessDeniedException(); // Throw an access denied exception
+        }
+
+        $article = new Article();
+        $article->setLocation($request->query->get('location'));
+        $form = $this->createForm(ArticleFormType::class, $article);
+
+        // if there is no field, return an ampty response
+        if (!$form->has('specificLocationName')) {
+            return new Response(null, 204);
+        }
+
+        // if wie do have the filed, return a template and render it
+        return $this->render('article_admin/_specific_location_name.html.twig', [
+            'articleForm' => $form->createView()
+        ]);
     }
 
     /**

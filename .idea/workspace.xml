@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04d8cccc-a790-446e-adef-20f06350741a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Form/Model/UserRegistrationFormModel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/admin_article_form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/article_admin/_specific_location_name.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/symfony_forms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony_forms.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/UserRegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserRegistrationFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ArticleAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ArticleAdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ArticleFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ArticleFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/article_admin/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article_admin/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/article_admin/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article_admin/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/article_admin/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article_admin/new.html.twig" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -178,18 +183,6 @@
       <recent name="$PROJECT_DIR$/templates/article_admin" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -204,6 +197,7 @@
       <workItem from="1582747139577" duration="2627000" />
       <workItem from="1582790026079" duration="21349000" />
       <workItem from="1582829968640" duration="3751000" />
+      <workItem from="1582876195306" duration="8508000" />
     </task>
     <servers />
   </component>
@@ -244,9 +238,13 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="781" y="359" key="SettingsEditor/2560.0.3840.2160/0.0.2560.1440@0.0.2560.1440" timestamp="1582721845140" />
-    <state x="957" y="552" key="com.intellij.ide.util.TipDialog" timestamp="1582790026643">
+    <state x="957" y="552" key="com.intellij.ide.util.TipDialog" timestamp="1582876196195">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="957" y="552" key="com.intellij.ide.util.TipDialog/2560.0.3840.2160/0.0.2560.1440@0.0.2560.1440" timestamp="1582790026643" />
+    <state x="957" y="552" key="com.intellij.ide.util.TipDialog/2560.0.3840.2160/0.0.2560.1440@0.0.2560.1440" timestamp="1582876196195" />
+    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup" timestamp="1582883629813">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="945" y="331" width="670" height="676" key="search.everywhere.popup/2560.0.3840.2160/0.0.2560.1440@0.0.2560.1440" timestamp="1582883629813" />
   </component>
 </project>
